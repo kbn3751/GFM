@@ -8,10 +8,59 @@
 ___
 
 # Table
-- GFM enables the extension, where an additional leaf block type is available.
-- A table is an arrangement of data with rows and columns, consistiong of a single header row, a deli
-miter row separating the header from the data, and zero or more data rows.
+> - GFM enables the extension, where an additional leaf block type is available.
+> - Table은 행과 열로 있는 데이터 배열로, 단일 헤더 행, 데이터에서 헤더를 분리하는 delimiter 행 및 0개 이상의 데이터 행으로 구성됩니다.
   
-- Each row consists of cells containing arbitrary text, in which inlines are parsed, separated by pipes(|). A leading and trailing pipe is also recommended for clarity of reading, and if there's otherwise parsing ambiguity. Spaces between pipes and cell content are trimmed. Block-level elements cannot be inserted in a table
+> - 각 행은 파이프( | )로 구분되는 인라인 구문과 임의 텍스트가 포함된 셀로 구성됩니다. 선행 및 후행 파이프는 읽기의 명확성을 위해 권장되며, 그렇지 않은 경우 구문 분석에 있어 모호성이 있을 수 있습니다. 파이프와 셀 콘텐츠 사이의 공백이 잘리고 블록 수준 요소는 테이블에 삽입할 수 없습니다.
 
-- The delimiter row onsists of cells whose only content are hyphens (), and optionally, a leading or trailing colon (), or both, to indicate left, right, or center alignment respectively.
+> - The delimiter 행은 유일한 함량이 하이픈(|) 및 선택적으로 선행 또는 후행 결장 또는 둘 다인 셀로 구성되어 각각 왼쪽, 오른쪽 또는 중앙 정렬을 나타냅니다.
+
+**example**  
+```
+ex 1)
+  |foo|bar|
+  |---|---|
+  |baz|bim|
+  
+ex 2)
+  |abc|defghi|
+  :-:|--------:
+  bar|baz
+
+* 한 열의 셀은 길이를 일치할 필요는 없지만, 이 열의 경우 읽기가 더 쉽습니다. 또한, 선행 및 후행 파이프의 사용이 일치하지 않은 수 있습니다.
+
+ex 3)
+  |f\|oo |
+  |-----|
+  |b `\|` az |
+  |b **\|** im |
+  
+* 다른 인라인 범위 내부를 포함하여 셀의 내용에 파이프를 포함합니다.
+
+ex 4)
+  |abc|def|
+  |---|
+  |bar|
+  
+* 헤더 행은 셀 수의 delimiter 행과 일치해야 합니다. 그렇지 않으면 테이블은 인식되지 않습니다.
+
+ex 5)
+  |abc|def|
+  |---|---|
+  |bar|
+  |bar|baz|boo|
+  
+* 테이블행의 나머지 행은 셀 수에 따라 다를 수 있습니다. 헤더 행의 셀 수보다 적은 셀이 여러 개 있는 경우 빈 셀이 삽입됩니다. 더 큰 경우는 무시됩니다.
+
+ex 6)
+  |abc|def|
+  |---|---|
+
+* 본문에 행이 없는 경우 HTML 출력에서 생성되지 않습니다.
+```
+
+<br>
+
+___
+
+# TaskListItems
