@@ -8,7 +8,7 @@
 ___
 
 # Table
-> - GFM enables the extension, where an additional leaf block type is available.
+> GFM enables the extension, where an additional leaf block type is available.
 > - Table은 행과 열로 있는 데이터 배열로, 단일 헤더 행, 데이터에서 헤더를 분리하는 delimiter 행 및 0개 이상의 데이터 행으로 구성됩니다.
   
 > - 각 행은 파이프( | )로 구분되는 인라인 구문과 임의 텍스트가 포함된 셀로 구성됩니다. 선행 및 후행 파이프는 읽기의 명확성을 위해 권장되며, 그렇지 않은 경우 구문 분석에 있어 모호성이 있을 수 있습니다. 파이프와 셀 콘텐츠 사이의 공백이 잘리고 블록 수준 요소는 테이블에 삽입할 수 없습니다.
@@ -65,7 +65,7 @@ ex 6)
 ___
 
 # TaskListItems
-> - GFM을 사용하면 목록 항목에서 추가 처리 단계가 수행되는 확장을 사용할 수 있습니다.
+> GFM을 사용하면 목록 항목에서 추가 처리 단계가 수행되는 확장을 사용할 수 있습니다.
 > 
 > - Task list items은 첫 번째 블록이 Task list items marker로 시작하는 단락이고 다른 내용보다 공백 문자가 하나 이상 있는 목록 항목입니다.
 > - Task list items marker는 공백 수(선택 사항), 왼쪽 괄호(), 공백 문자 또는 소문자 또는 대문자, 오른쪽 괄호()로 구성됩니다.
@@ -86,9 +86,61 @@ ex 2)
   - [ ] bin
 
 * 작업 목록은 임의로 중첩될 수 있습니다.
+```
 
 <br>
 
 ___
 
 # Strikethrough
+> GFM을 사용하면 추가 강조 유형을 사용할 수 있는 확장을 사용할 수 있습니다.
+**example** 
+```
+  ex 1)
+    ~~Hi~~Hello, ssu!
+  
+  * Strikethrough 텍스트는 2 개의 '~'로 묶인 텍스트입니다.
+  
+  ex 2)
+    This ~~has a
+    
+    new paragraph~~
+  
+  * 일반 강조 기호와 마찬가지로, 새로운 단락은 구문 분석을 통한 Strikethrough을 중단할 수 있습니다.
+```
+
+<br>
+
+___
+
+# Autolinks
+> - 
+
+
+<br>
+
+___
+
+# DisallowedRawHTML
+> GFM을 사용하면 HTML 출력을 렌더링할 때 다음 HTML 태그가 필터링되는 확장을 사용할 수 있습니다.
+> - <title>
+> - <textarea>
+> - <style>
+> - <xmp>
+> - <iframe>
+> - <noembed>
+> - <noframes>
+> - <script>
+> - <plaintext>
+> 
+> * 필터링은 선행을 엔터티로 대체하여 수행됩니다. 이러한 태그는 특히 HTML이 고유한 방식으로 해석되는 방식을 변경할 때 선택되며 일반적으로 렌더링 된 다른 Markdown 콘텐츠의 컨텍스트에서 신뢰할 수 없습니다.
+> * 다른 모든 HTML 태그는 그대로 유지됩니다.
+**example** 
+```
+  ex 1) 
+    <strong><title><style><em>
+      
+     <blockquote>
+        <xmp> is disallowed. <XMP> is a also disallowed
+     </blockquote>
+```
