@@ -1,3 +1,7 @@
+# GFM's Extended Syntax
+
+___
+
 # 목차
 1. [Table](#Table)
 2. [TaskListItems](#TaskListItems)
